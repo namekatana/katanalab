@@ -1,0 +1,22 @@
+---
+import { navLinks } from '../../constants/navigation'
+
+interface Props {
+	class?: string
+}
+
+const { class: className = '' } = Astro.props
+---
+
+<nav class:list={['hidden md:flex items-center gap-10', className]} aria-label="primary">
+	{
+		navLinks.map((link) => (
+			<a
+				href={link.href}
+				class="nav-link font-medium lowercase text-sm tracking-wide text-neutral-900 transition-colors duration-300 hover:text-neutral-600"
+			>
+				{link.label}
+			</a>
+		))
+	}
+</nav>

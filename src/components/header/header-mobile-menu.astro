@@ -1,0 +1,31 @@
+---
+import { ctaLink, navLinks } from '../../constants/navigation'
+---
+
+<div
+	id="header-mobile-menu"
+	class="mobile-menu pointer-events-none fixed inset-0 z-40 flex flex-col bg-white opacity-0 md:hidden"
+	aria-hidden="true"
+>
+	<div class="flex flex-1 flex-col items-center justify-center gap-8 px-8 pt-20">
+		{
+			navLinks.map((link, index) => (
+				<a
+					href={link.href}
+					class="mobile-link font-medium lowercase text-2xl tracking-wide text-neutral-900 transition-colors duration-300 hover:text-neutral-600"
+					style={`--delay: ${index * 60}ms`}
+				>
+					{link.label}
+				</a>
+			))
+		}
+		<a
+			href={ctaLink.href}
+			data-cta-button
+			class="cta-button mobile-link hero-gpu mt-4 inline-flex items-center justify-center rounded-full bg-neutral-900 px-8 py-3 text-base font-medium lowercase tracking-wide text-white"
+			style={`--delay: ${navLinks.length * 60}ms`}
+		>
+			{ctaLink.label}
+		</a>
+	</div>
+</div>

@@ -1,0 +1,17 @@
+---
+interface Props {
+	class?: string
+}
+
+const { class: className = '' } = Astro.props
+---
+
+<a href="/" class:list={['inline-flex shrink-0 items-center', className]} aria-label="katana lab home">
+	<img
+		src="/images/logo.png"
+		alt="katana lab"
+		width="140"
+		height="40"
+		class="h-8 w-auto md:h-10"
+	/>
+</a>
