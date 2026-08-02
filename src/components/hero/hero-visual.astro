@@ -1,0 +1,47 @@
+---
+import HeroMockupBrowser from './hero-mockup-browser.astro'
+import HeroMockupChat from './hero-mockup-chat.astro'
+import HeroMockupPhone from './hero-mockup-phone.astro'
+---
+
+<div
+	data-hero-visual
+	class="relative mx-auto hidden h-[420px] w-full max-w-md lg:block xl:h-[480px] xl:max-w-lg"
+	aria-hidden="true"
+>
+	<div
+		data-hero-card
+		data-hero-card-browser
+		class="hero-gpu absolute left-[4%] top-0 z-30 h-[46%] w-[72%]"
+	>
+		<div data-hero-card-parallax class="hero-gpu h-full w-full">
+			<div data-hero-card-float class="hero-gpu h-full w-full">
+				<HeroMockupBrowser />
+			</div>
+		</div>
+	</div>
+
+	<div
+		data-hero-card
+		data-hero-card-chat
+		class="hero-gpu absolute right-0 top-[22%] z-20 h-[42%] w-[58%]"
+	>
+		<div data-hero-card-parallax class="hero-gpu h-full w-full">
+			<div data-hero-card-float class="hero-gpu h-full w-full">
+				<HeroMockupChat />
+			</div>
+		</div>
+	</div>
+
+	<div
+		data-hero-card
+		data-hero-card-phone
+		class="hero-gpu absolute bottom-0 left-[10%] z-10 h-[48%] w-[52%]"
+	>
+		<div data-hero-card-parallax class="hero-gpu h-full w-full">
+			<div data-hero-card-float class="hero-gpu h-full w-full">
+				<HeroMockupPhone />
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,31 @@
+---
+import HeroHeadline from './hero-headline.astro'
+import HeroSubheadline from './hero-subheadline.astro'
+import HeroActions from './hero-actions.astro'
+import HeroVisual from './hero-visual.astro'
+---
+
+<section
+	data-hero
+	class="bg-white pt-12 pb-24 md:pt-16 md:pb-32 lg:pb-40"
+	aria-label="hero"
+>
+	<div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 md:px-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10 xl:gap-16">
+		<div class="flex flex-col items-start">
+			<HeroHeadline />
+			<HeroSubheadline />
+			<HeroActions />
+		</div>
+		<HeroVisual />
+	</div>
+</section>
+
+<script>
+	import { initHeroAnimation } from '../../scripts/hero-animation'
+
+	const hero = document.querySelector<HTMLElement>('[data-hero]')
+
+	if (hero) {
+		initHeroAnimation(hero)
+	}
+</script>

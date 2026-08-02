@@ -1,0 +1,23 @@
+---
+import { heroContent } from '../../constants/hero'
+---
+
+<div
+	data-hero-actions
+	class="mt-12 flex w-full flex-col items-stretch gap-3 sm:mt-14 sm:w-auto sm:flex-row sm:items-center sm:justify-start sm:gap-4"
+>
+	<a
+		href={heroContent.primaryCta.href}
+		data-cta-button
+		class="hero-gpu inline-flex items-center justify-center rounded-full bg-neutral-900 px-8 py-3.5 text-sm font-medium lowercase tracking-wide text-white"
+	>
+		{heroContent.primaryCta.label}
+	</a>
+	<a
+		href={heroContent.secondaryCta.href}
+		data-cta-button
+		class="hero-gpu inline-flex items-center justify-center rounded-full border border-neutral-900 bg-transparent px-8 py-3.5 text-sm font-medium lowercase tracking-wide text-neutral-900"
+	>
+		{heroContent.secondaryCta.label}
+	</a>
+</div>
