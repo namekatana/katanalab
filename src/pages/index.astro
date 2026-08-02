@@ -1,8 +1,29 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Hero from '../components/hero/hero.astro'
+import Services from '../components/services/services.astro'
+import Process from '../components/process/process.astro'
+import Pricing from '../components/pricing/pricing.astro'
+import Faq from '../components/faq/faq.astro'
+import SectionCard from '../components/shared/section-card.astro'
 ---
 
 <Layout>
 	<Hero />
+	<div class="bg-white px-3 pb-3 pt-3 md:px-5 md:pb-5 md:pt-4">
+		<div class="mx-auto flex max-w-[90rem] flex-col gap-3 md:gap-4">
+			<SectionCard>
+				<Services />
+			</SectionCard>
+			<SectionCard>
+				<Process />
+			</SectionCard>
+			<SectionCard>
+				<Pricing />
+			</SectionCard>
+			<SectionCard>
+				<Faq />
+			</SectionCard>
+		</div>
+	</div>
 </Layout>

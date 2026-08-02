@@ -1,0 +1,50 @@
+---
+import type { FaqItem } from '../../constants/faq'
+
+interface Props {
+	item: FaqItem
+	index: number
+}
+
+const { item, index } = Astro.props
+const panelId = `faq-panel-${index}`
+const buttonId = `faq-button-${index}`
+---
+
+<div
+	data-faq-item
+	class="overflow-hidden rounded-2xl border border-neutral-200 bg-white transition-colors duration-300 hover:border-neutral-300 [&.is-open]:border-neutral-900 [&.is-open]:bg-neutral-50"
+>
+	<button
+		id={buttonId}
+		type="button"
+		class="flex w-full items-center justify-between gap-6 rounded-2xl px-5 py-5 text-left md:px-6 md:py-6"
+		aria-expanded="false"
+		aria-controls={panelId}
+		data-faq-trigger
+	>
+		<span class="text-lg font-bold lowercase text-neutral-900 md:text-xl">
+			{item.question}
+		</span>
+		<span
+			class="faq-icon relative size-5 shrink-0 rounded-full text-neutral-900"
+			aria-hidden="true"
+		>
+			<span class="absolute top-1/2 left-0 h-px w-full -translate-y-1/2 bg-current"></span>
+			<span class="faq-icon-vertical absolute top-0 left-1/2 h-full w-px -translate-x-1/2 bg-current transition-transform duration-300"></span>
+		</span>
+	</button>
+	<div
+		id={panelId}
+		role="region"
+		aria-labelledby={buttonId}
+		data-faq-panel
+		class="faq-panel grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out"
+	>
+		<div class="overflow-hidden">
+			<p class="max-w-3xl px-5 pb-5 text-sm leading-relaxed text-neutral-500 md:px-6 md:pb-6 md:text-base">
+				{item.answer}
+			</p>
+		</div>
+	</div>
+</div>

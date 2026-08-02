@@ -1,0 +1,63 @@
+---
+import type { ServiceItem } from '../../constants/services'
+import ServicesIcon from './services-icon.astro'
+
+interface Props {
+	item: ServiceItem
+}
+
+const { item } = Astro.props
+---
+
+<article
+	data-service-card
+	class="group flex h-full flex-col rounded-2xl p-6 transition-all duration-300 ease-out hover:bg-neutral-50 md:p-8"
+>
+	<span
+		class="mb-6 block h-[3px] w-10 rounded-full bg-neutral-200 transition-colors duration-300 group-hover:bg-neutral-900"
+		aria-hidden="true"
+	></span>
+
+	<div class="mb-5 flex items-center gap-4 text-neutral-300 transition-colors duration-300 group-hover:text-neutral-900">
+		<ServicesIcon name={item.icon} />
+		<span class="font-display text-5xl font-bold text-neutral-200">
+			{item.number}
+		</span>
+	</div>
+
+	<h3 class="mb-4 flex items-center text-2xl font-bold lowercase text-neutral-900">
+		<span class="transition-transform duration-300 ease-out group-hover:translate-x-2">
+			{item.title}
+		</span>
+		<span
+			class="ml-2 inline-block translate-x-0 opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100"
+			aria-hidden="true"
+		>
+			→
+		</span>
+	</h3>
+
+	<p class="mb-6 max-w-sm text-base leading-relaxed text-neutral-500">
+		{item.description}
+	</p>
+
+	<ul class="mb-8 flex flex-1 flex-col gap-2.5">
+		{
+			item.features.map((feature) => (
+				<li class="flex items-start gap-2 text-sm lowercase leading-snug text-neutral-600">
+					<span class="mt-0.5 shrink-0 text-neutral-900" aria-hidden="true">
+						✓
+					</span>
+					<span>{feature}</span>
+				</li>
+			))
+		}
+	</ul>
+
+	<a
+		href={item.href}
+		class="text-link mt-auto inline-flex w-fit text-sm font-medium lowercase text-neutral-900"
+	>
+		learn more →
+	</a>
+</article>

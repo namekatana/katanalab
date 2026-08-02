@@ -1,0 +1,12 @@
+---
+import { pricingContent } from '../../constants/pricing'
+import PricingCard from './pricing-card.astro'
+---
+
+<div class="mt-14 grid grid-cols-1 items-stretch gap-10 md:mt-16 md:grid-cols-2 md:gap-8 lg:grid-cols-4 lg:items-stretch lg:gap-6">
+	{pricingContent.items.map((item) => <PricingCard item={item} />)}
+</div>
+
+<p class="mt-10 max-w-2xl text-left text-sm leading-relaxed text-neutral-400 md:mt-12">
+	{pricingContent.disclaimer}
+</p>

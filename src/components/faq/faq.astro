@@ -1,0 +1,27 @@
+---
+import FaqHeader from './faq-header.astro'
+import FaqList from './faq-list.astro'
+---
+
+<section
+	data-faq
+	class="py-20 md:py-28"
+	aria-label="frequently asked questions"
+>
+	<div class="mx-auto max-w-7xl px-6 md:px-10">
+		<FaqHeader />
+		<FaqList />
+	</div>
+</section>
+
+<script>
+	import { initFaq } from '../../scripts/faq-accordion'
+	import { initFaqAnimation } from '../../scripts/faq-animation'
+
+	const faq = document.querySelector<HTMLElement>('[data-faq]')
+
+	if (faq) {
+		initFaq(faq)
+		initFaqAnimation(faq)
+	}
+</script>

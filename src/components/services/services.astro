@@ -1,0 +1,25 @@
+---
+import ServicesHeader from './services-header.astro'
+import ServicesGrid from './services-grid.astro'
+---
+
+<section
+	data-services
+	class="py-20 md:py-28"
+	aria-label="services"
+>
+	<div class="mx-auto max-w-7xl px-6 md:px-10">
+		<ServicesHeader />
+		<ServicesGrid />
+	</div>
+</section>
+
+<script>
+	import { initServicesAnimation } from '../../scripts/services-animation'
+
+	const services = document.querySelector<HTMLElement>('[data-services]')
+
+	if (services) {
+		initServicesAnimation(services)
+	}
+</script>

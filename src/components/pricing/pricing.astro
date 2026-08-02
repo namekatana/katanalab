@@ -1,0 +1,25 @@
+---
+import PricingHeader from './pricing-header.astro'
+import PricingGrid from './pricing-grid.astro'
+---
+
+<section
+	data-pricing
+	class="py-20 md:py-28"
+	aria-label="pricing"
+>
+	<div class="mx-auto max-w-7xl px-6 md:px-10">
+		<PricingHeader />
+		<PricingGrid />
+	</div>
+</section>
+
+<script>
+	import { initPricingAnimation } from '../../scripts/pricing-animation'
+
+	const pricing = document.querySelector<HTMLElement>('[data-pricing]')
+
+	if (pricing) {
+		initPricingAnimation(pricing)
+	}
+</script>

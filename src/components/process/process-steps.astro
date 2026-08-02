@@ -1,0 +1,15 @@
+---
+import { processContent } from '../../constants/process'
+import ProcessStep from './process-step.astro'
+---
+
+<div class="relative mt-16 md:mt-20">
+	<div
+		data-process-line
+		class="pointer-events-none absolute top-[2.125rem] right-[12.5%] left-[12.5%] hidden h-px origin-left bg-neutral-200 md:block"
+		aria-hidden="true"
+	></div>
+	<div class="grid grid-cols-1 items-stretch gap-4 md:grid-cols-4 md:gap-5">
+		{processContent.steps.map((step) => <ProcessStep step={step} />)}
+	</div>
+</div>

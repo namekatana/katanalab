@@ -1,0 +1,8 @@
+---
+import { faqContent } from '../../constants/faq'
+import FaqItem from './faq-item.astro'
+---
+
+<div class="mt-14 flex flex-col gap-3 md:mt-16 md:gap-4">
+	{faqContent.items.map((item, index) => <FaqItem item={item} index={index} />)}
+</div>

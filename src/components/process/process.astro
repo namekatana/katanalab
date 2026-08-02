@@ -1,0 +1,27 @@
+---
+import ProcessHeader from './process-header.astro'
+import ProcessSteps from './process-steps.astro'
+import ProcessTrust from './process-trust.astro'
+---
+
+<section
+	data-process
+	class="py-20 md:py-28"
+	aria-label="how we work"
+>
+	<div class="mx-auto max-w-7xl px-6 md:px-10">
+		<ProcessHeader />
+		<ProcessSteps />
+		<ProcessTrust />
+	</div>
+</section>
+
+<script>
+	import { initProcessAnimation } from '../../scripts/process-animation'
+
+	const process = document.querySelector<HTMLElement>('[data-process]')
+
+	if (process) {
+		initProcessAnimation(process)
+	}
+</script>

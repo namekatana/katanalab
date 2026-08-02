@@ -1,0 +1,8 @@
+---
+import { servicesContent } from '../../constants/services'
+import ServicesCard from './services-card.astro'
+---
+
+<div class="mt-16 grid grid-cols-1 items-stretch gap-12 md:mt-20 md:grid-cols-3 md:gap-8">
+	{servicesContent.items.map((item) => <ServicesCard item={item} />)}
+</div>
