@@ -2,6 +2,7 @@
 import { ClientRouter } from 'astro:transitions'
 import Header from '../components/header/header.astro'
 import Scrollbar from '../components/scrollbar/scrollbar.astro'
+import ViewTransitionStyles from '../components/shared/view-transition-styles.astro'
 import '../styles/global.css'
 
 interface Props {
@@ -33,6 +34,7 @@ const { title = 'katana lab' } = Astro.props
 		/>
 		<title>{title}</title>
 		<ClientRouter />
+		<ViewTransitionStyles />
 	</head>
 	<body class="min-h-dvh bg-white font-sans antialiased">
 		<Header />

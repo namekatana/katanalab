@@ -1,0 +1,86 @@
+---
+import { projectsContent } from '../../constants/projects'
+import { blogContent } from '../../constants/blog'
+
+const duration = '0.45s'
+const easing = 'cubic-bezier(0.4, 0, 0.2, 1)'
+
+const projectRules = projectsContent.items
+	.map((project) => {
+		const name = `project-image-${project.slug}`
+		return `
+::view-transition-group(${name}) {
+	z-index: 20;
+	animation-duration: ${duration};
+	animation-timing-function: ${easing};
+	overflow: clip;
+	border-radius: 1rem;
+	background: transparent;
+}
+
+::view-transition-image-pair(${name}) {
+	isolation: isolate;
+	overflow: clip;
+	border-radius: inherit;
+}
+
+::view-transition-old(${name}):not(:only-child) {
+	display: none;
+}
+
+::view-transition-old(${name}):only-child {
+	animation: pageFadeOut ${duration} ${easing} both;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	border-radius: inherit;
+}
+
+::view-transition-new(${name}) {
+	animation: pageFadeIn ${duration} ${easing} both;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	overflow: clip;
+	border-radius: inherit;
+}
+`
+	})
+	.join('\n')
+
+const blogRules = blogContent.items
+	.map((post) => {
+		const name = `blog-title-${post.slug}`
+		return `
+::view-transition-group(${name}) {
+	z-index: 20;
+	animation-duration: ${duration};
+	animation-timing-function: ${easing};
+	background: transparent;
+}
+
+::view-transition-image-pair(${name}) {
+	isolation: isolate;
+}
+
+::view-transition-old(${name}):not(:only-child) {
+	display: none;
+}
+
+::view-transition-old(${name}):only-child {
+	animation: pageFadeOut ${duration} ${easing} both;
+}
+
+::view-transition-new(${name}) {
+	animation: pageFadeIn ${duration} ${easing} both;
+	height: auto;
+	width: 100%;
+}
+`
+	})
+	.join('\n')
+
+const rules = `${projectRules}\n${blogRules}`
+---
+
+<style is:global set:html={rules} />
