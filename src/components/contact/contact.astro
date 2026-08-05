@@ -1,0 +1,35 @@
+---
+import { contactContent } from '../../constants/contact'
+import SectionHeader from '../shared/section-header.astro'
+import ContactDetails from './contact-details.astro'
+import ContactForm from './contact-form.astro'
+---
+
+<section
+	data-contact
+	class="py-20 md:py-28"
+	aria-label="contact"
+>
+	<div class="mx-auto max-w-7xl px-6 md:px-10">
+		<SectionHeader
+			eyebrow={contactContent.eyebrow}
+			heading={contactContent.heading}
+			subheading={contactContent.subheading}
+			headingClass="max-w-2xl"
+		/>
+
+		<div class="mt-16 grid grid-cols-1 gap-14 md:mt-20 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+			<ContactDetails />
+			<ContactForm />
+		</div>
+	</div>
+</section>
+
+<script>
+	import { initContactForm } from '../../scripts/contact-form'
+
+	document.addEventListener('astro:page-load', () => {
+		const form = document.querySelector<HTMLFormElement>('[data-contact-form]')
+		if (form) initContactForm(form)
+	})
+</script>

@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Contact from '../../components/contact/contact.astro'
+import Footer from '../../components/footer/footer.astro'
+import SectionCard from '../../components/shared/section-card.astro'
+---
+
+<Layout title="contact — katana lab">
+	<div class="bg-white px-3 pb-3 pt-3 md:px-5 md:pb-5 md:pt-4">
+		<div class="mx-auto flex max-w-[90rem] flex-col gap-3 md:gap-4">
+			<SectionCard class="overflow-visible">
+				<Contact />
+			</SectionCard>
+			<Footer />
+		</div>
+	</div>
+</Layout>

@@ -1,0 +1,49 @@
+---
+import { contactContent } from '../../constants/contact'
+import TelegramIcon from '../shared/telegram-icon.astro'
+---
+
+<aside class="flex flex-col gap-10" aria-label="contact details">
+	<div>
+		<p class="mb-3 text-xs font-medium lowercase tracking-widest text-neutral-400">
+			telegram
+		</p>
+		<a
+			href={contactContent.telegram.href}
+			target="_blank"
+			rel="noopener noreferrer"
+			class="group inline-flex items-center gap-3 text-neutral-900"
+		>
+			<span class="flex h-11 w-11 items-center justify-center rounded-full border border-neutral-200 transition-colors duration-300 group-hover:border-neutral-900 group-hover:bg-neutral-900 group-hover:text-white">
+				<TelegramIcon class="h-5 w-5" />
+			</span>
+			<span class="text-link text-lg font-medium lowercase md:text-xl">
+				{contactContent.telegram.handle}
+			</span>
+		</a>
+		<p class="mt-3 max-w-xs text-sm leading-relaxed text-neutral-500">
+			{contactContent.telegram.label}. bot coming soon.
+		</p>
+	</div>
+
+	<div>
+		<p class="mb-3 text-xs font-medium lowercase tracking-widest text-neutral-400">
+			{contactContent.location.label}
+		</p>
+		<p class="text-lg font-medium lowercase text-neutral-900 md:text-xl">
+			{contactContent.location.value}
+		</p>
+	</div>
+
+	<div>
+		<p class="mb-3 text-xs font-medium lowercase tracking-widest text-neutral-400">
+			{contactContent.email.label}
+		</p>
+		<a
+			href={contactContent.email.href}
+			class="text-link text-lg font-medium lowercase text-neutral-900 md:text-xl"
+		>
+			{contactContent.email.value}
+		</a>
+	</div>
+</aside>

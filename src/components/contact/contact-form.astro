@@ -1,0 +1,88 @@
+---
+import { contactContent } from '../../constants/contact'
+import ContactSelect from './contact-select.astro'
+---
+
+<form
+	data-contact-form
+	class="flex flex-col gap-6"
+	novalidate
+>
+	<div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+		<label class="flex flex-col gap-2">
+			<span class="text-xs font-medium lowercase tracking-widest text-neutral-400">
+				{contactContent.form.firstName}
+			</span>
+			<input
+				type="text"
+				name="firstName"
+				required
+				autocomplete="given-name"
+				class="rounded-2xl border border-neutral-200 bg-white px-4 py-3 text-base text-neutral-900 outline-none transition-colors duration-300 placeholder:text-neutral-400 focus:border-neutral-900"
+			/>
+		</label>
+
+		<label class="flex flex-col gap-2">
+			<span class="text-xs font-medium lowercase tracking-widest text-neutral-400">
+				{contactContent.form.lastName}
+			</span>
+			<input
+				type="text"
+				name="lastName"
+				required
+				autocomplete="family-name"
+				class="rounded-2xl border border-neutral-200 bg-white px-4 py-3 text-base text-neutral-900 outline-none transition-colors duration-300 placeholder:text-neutral-400 focus:border-neutral-900"
+			/>
+		</label>
+	</div>
+
+	<label class="flex flex-col gap-2">
+		<span class="text-xs font-medium lowercase tracking-widest text-neutral-400">
+			{contactContent.form.email}
+		</span>
+		<input
+			type="email"
+			name="email"
+			required
+			autocomplete="email"
+			class="rounded-2xl border border-neutral-200 bg-white px-4 py-3 text-base text-neutral-900 outline-none transition-colors duration-300 placeholder:text-neutral-400 focus:border-neutral-900"
+		/>
+	</label>
+
+	<ContactSelect
+		name="projectType"
+		label={contactContent.form.projectType}
+		placeholder="select a type"
+		options={contactContent.projectTypes}
+	/>
+
+	<label class="flex flex-col gap-2">
+		<span class="text-xs font-medium lowercase tracking-widest text-neutral-400">
+			{contactContent.form.description}
+		</span>
+		<textarea
+			name="description"
+			required
+			rows="5"
+			placeholder={contactContent.form.descriptionPlaceholder}
+			class="resize-y rounded-2xl border border-neutral-200 bg-white px-4 py-3 text-base text-neutral-900 outline-none transition-colors duration-300 placeholder:text-neutral-400 focus:border-neutral-900"
+		></textarea>
+	</label>
+
+	<button
+		type="submit"
+		data-cta-button
+		class="inline-flex w-fit items-center justify-center rounded-full bg-neutral-900 px-8 py-3 text-sm font-medium lowercase tracking-wide text-white"
+	>
+		{contactContent.form.submit}
+	</button>
+
+	<p
+		data-contact-success
+		hidden
+		class="text-sm leading-relaxed text-neutral-600"
+		role="status"
+	>
+		{contactContent.form.success}
+	</p>
+</form>

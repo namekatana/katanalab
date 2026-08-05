@@ -1,0 +1,78 @@
+---
+import type { ProjectTypeOption } from '../../constants/contact'
+
+interface Props {
+	name: string
+	label: string
+	placeholder: string
+	options: ProjectTypeOption[]
+	required?: boolean
+}
+
+const { name, label, placeholder, options, required = true } = Astro.props
+---
+
+<div class="flex flex-col gap-2" data-contact-select>
+	<span class="text-xs font-medium lowercase tracking-widest text-neutral-400" id={`${name}-label`}>
+		{label}
+	</span>
+
+	<input
+		type="hidden"
+		name={name}
+		value=""
+		data-contact-select-input
+		required={required}
+	/>
+
+	<div class="relative">
+		<button
+			type="button"
+			data-contact-select-trigger
+			class="flex w-full items-center justify-between rounded-2xl border border-neutral-200 bg-white px-4 py-3 text-left text-base lowercase outline-none transition-colors duration-300 focus:border-neutral-900"
+			aria-haspopup="listbox"
+			aria-expanded="false"
+			aria-labelledby={`${name}-label`}
+		>
+			<span data-contact-select-value class="text-neutral-400">{placeholder}</span>
+			<span
+				data-contact-select-chevron
+				class="ml-3 inline-block text-neutral-400 transition-transform duration-300"
+				aria-hidden="true"
+			>
+				<svg viewBox="0 0 16 16" fill="none" class="h-4 w-4" aria-hidden="true">
+					<path
+						d="M4 6l4 4 4-4"
+						stroke="currentColor"
+						stroke-width="1.5"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					></path>
+				</svg>
+			</span>
+		</button>
+
+		<ul
+			data-contact-select-list
+			class="absolute top-[calc(100%+0.5rem)] left-0 z-30 hidden w-full overflow-hidden rounded-2xl border border-neutral-200 bg-white py-1 shadow-lg"
+			role="listbox"
+			aria-labelledby={`${name}-label`}
+			tabindex="-1"
+		>
+			{
+				options.map((option) => (
+					<li
+						role="option"
+						tabindex="0"
+						data-contact-select-option
+						data-value={option.value}
+						aria-selected="false"
+						class="cursor-pointer px-4 py-3 text-base lowercase text-neutral-900 transition-colors duration-200 hover:bg-neutral-50 focus:bg-neutral-50 focus:outline-none"
+					>
+						{option.label}
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</div>

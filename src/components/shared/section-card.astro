@@ -8,8 +8,8 @@ const { class: className = '' } = Astro.props
 
 <div
 	class:list={[
-		'overflow-hidden rounded-3xl bg-white',
-		className,
+		'rounded-3xl bg-white',
+		className || 'overflow-hidden',
 	]}
 >
 	<slot />
