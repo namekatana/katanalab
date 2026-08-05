@@ -1,0 +1,61 @@
+---
+import type { ProjectItem } from '../../constants/projects'
+
+interface Props {
+	project: ProjectItem
+}
+
+const { project } = Astro.props
+const imageTransitionName = `project-image-${project.slug}`
+---
+
+<a
+	href={project.href}
+	data-project-card
+	class="group flex h-full flex-col rounded-2xl p-6 transition-all duration-300 ease-out hover:bg-neutral-50 md:p-8"
+>
+	<span
+		class="mb-6 block h-[3px] w-10 rounded-full bg-neutral-200 transition-colors duration-300 group-hover:bg-neutral-900"
+		aria-hidden="true"
+	></span>
+
+	<div
+		data-project-image
+		class="mb-6 aspect-[4/3] overflow-hidden rounded-2xl bg-neutral-100"
+		style={`view-transition-name: ${imageTransitionName}`}
+	>
+		<img
+			src={project.image}
+			alt={project.imageAlt}
+			class="h-full w-full object-cover"
+			loading="eager"
+			decoding="async"
+		/>
+	</div>
+
+	<p class="mb-3 text-xs font-medium lowercase tracking-widest text-neutral-400">
+		{project.category}
+		<span class="mx-2 text-neutral-300">/</span>
+		{project.year}
+	</p>
+
+	<h2 class="mb-4 flex items-center text-2xl font-bold lowercase text-neutral-900">
+		<span class="transition-transform duration-300 ease-out group-hover:translate-x-2">
+			{project.title}
+		</span>
+		<span
+			class="ml-2 inline-block opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100"
+			aria-hidden="true"
+		>
+			→
+		</span>
+	</h2>
+
+	<p class="mb-8 max-w-sm flex-1 text-base leading-relaxed text-neutral-500">
+		{project.summary}
+	</p>
+
+	<span class="text-link mt-auto inline-flex w-fit text-sm font-medium lowercase text-neutral-900">
+		view project →
+	</span>
+</a>
