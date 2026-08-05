@@ -17,9 +17,8 @@ import ServicesGrid from './services-grid.astro'
 <script>
 	import { initServicesAnimation } from '../../scripts/services-animation'
 
-	const services = document.querySelector<HTMLElement>('[data-services]')
-
-	if (services) {
-		initServicesAnimation(services)
-	}
+	document.addEventListener('astro:page-load', () => {
+		const services = document.querySelector<HTMLElement>('[data-services]')
+		if (services) initServicesAnimation(services)
+	})
 </script>

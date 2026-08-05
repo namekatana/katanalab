@@ -23,9 +23,8 @@ import HeroVisual from './hero-visual.astro'
 <script>
 	import { initHeroAnimation } from '../../scripts/hero-animation'
 
-	const hero = document.querySelector<HTMLElement>('[data-hero]')
-
-	if (hero) {
-		initHeroAnimation(hero)
-	}
+	document.addEventListener('astro:page-load', () => {
+		const hero = document.querySelector<HTMLElement>('[data-hero]')
+		if (hero) initHeroAnimation(hero)
+	})
 </script>

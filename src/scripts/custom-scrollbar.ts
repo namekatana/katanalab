@@ -86,7 +86,7 @@ export function initCustomScrollbar(root: HTMLElement) {
 		)
 		const ratio = maxThumbTop > 0 ? nextTop / maxThumbTop : 0
 
-		lenis.scrollTo(ratio * maxScroll, { duration: 1.1 })
+		lenis.scrollTo(ratio * maxScroll, { lerp: 0.14 })
 	}
 
 	const onResize = () => syncThumb(lenis.scroll)

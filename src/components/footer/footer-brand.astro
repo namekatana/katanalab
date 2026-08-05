@@ -1,0 +1,24 @@
+---
+import { footerContent } from '../../constants/footer'
+---
+
+<div class="flex flex-col gap-8 md:max-w-sm">
+	<a href="/" class="inline-flex w-fit" aria-label="katana lab home">
+		<img
+			src="/images/logo.png"
+			alt="katana lab"
+			width="140"
+			height="40"
+			class="h-8 w-auto brightness-0 invert md:h-9"
+		/>
+	</a>
+	<p class="text-sm leading-relaxed text-neutral-400 md:text-base">
+		{footerContent.tagline}
+	</p>
+	<a
+		href={footerContent.cta.href}
+		class="inline-flex w-fit items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-medium lowercase tracking-wide text-neutral-900 transition-transform duration-300 ease-out hover:scale-105"
+	>
+		{footerContent.cta.label}
+	</a>
+</div>

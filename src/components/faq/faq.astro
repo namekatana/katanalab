@@ -18,10 +18,10 @@ import FaqList from './faq-list.astro'
 	import { initFaq } from '../../scripts/faq-accordion'
 	import { initFaqAnimation } from '../../scripts/faq-animation'
 
-	const faq = document.querySelector<HTMLElement>('[data-faq]')
-
-	if (faq) {
+	document.addEventListener('astro:page-load', () => {
+		const faq = document.querySelector<HTMLElement>('[data-faq]')
+		if (!faq) return
 		initFaq(faq)
 		initFaqAnimation(faq)
-	}
+	})
 </script>

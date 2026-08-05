@@ -19,10 +19,11 @@ export function initSmoothScroll() {
 	if (lenis) return lenis
 
 	lenis = new Lenis({
-		duration: 1.2,
-		easing: (time) => Math.min(1, 1.001 - Math.pow(2, -10 * time)),
+		lerp: 0.12,
 		smoothWheel: true,
-		touchMultiplier: 1.5,
+		wheelMultiplier: 0.85,
+		touchMultiplier: 1.1,
+		syncTouch: false,
 		autoRaf: false,
 	})
 

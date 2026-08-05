@@ -1,0 +1,15 @@
+---
+import { footerContent } from '../../constants/footer'
+---
+
+<div class="flex flex-col gap-4 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
+	<p class="text-xs lowercase tracking-wide text-neutral-500 md:text-sm">
+		{footerContent.legal}
+	</p>
+	<a
+		href={`mailto:${footerContent.email}`}
+		class="text-sm lowercase text-neutral-400 transition-colors duration-300 hover:text-white"
+	>
+		{footerContent.email}
+	</a>
+</div>

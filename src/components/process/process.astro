@@ -19,9 +19,8 @@ import ProcessTrust from './process-trust.astro'
 <script>
 	import { initProcessAnimation } from '../../scripts/process-animation'
 
-	const process = document.querySelector<HTMLElement>('[data-process]')
-
-	if (process) {
-		initProcessAnimation(process)
-	}
+	document.addEventListener('astro:page-load', () => {
+		const process = document.querySelector<HTMLElement>('[data-process]')
+		if (process) initProcessAnimation(process)
+	})
 </script>

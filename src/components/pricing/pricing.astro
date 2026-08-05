@@ -17,9 +17,8 @@ import PricingGrid from './pricing-grid.astro'
 <script>
 	import { initPricingAnimation } from '../../scripts/pricing-animation'
 
-	const pricing = document.querySelector<HTMLElement>('[data-pricing]')
-
-	if (pricing) {
-		initPricingAnimation(pricing)
-	}
+	document.addEventListener('astro:page-load', () => {
+		const pricing = document.querySelector<HTMLElement>('[data-pricing]')
+		if (pricing) initPricingAnimation(pricing)
+	})
 </script>
