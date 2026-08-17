@@ -88,6 +88,9 @@ export function initHeroAnimation(root: HTMLElement) {
 		}
 
 		if (visual && parallaxNodes.length) {
+			const canParallax = window.matchMedia('(hover: hover) and (pointer: fine)').matches
+			if (!canParallax) return
+
 			const xTo = parallaxNodes.map((node) =>
 				gsap.quickTo(node, 'x', { duration: 0.45, ease: 'power3.out' }),
 			)

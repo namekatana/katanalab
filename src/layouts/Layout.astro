@@ -19,7 +19,7 @@ const { title = 'katana lab' } = Astro.props
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 		<link rel="icon" href="/favicon.ico" sizes="any" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 		<meta name="generator" content={Astro.generator} />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,9 +36,9 @@ const { title = 'katana lab' } = Astro.props
 		<ClientRouter />
 		<ViewTransitionStyles />
 	</head>
-	<body class="min-h-dvh bg-white font-sans antialiased">
+	<body class="min-h-dvh overflow-x-hidden bg-white font-sans antialiased">
 		<Header />
-		<main id="site-main">
+		<main id="site-main" class="min-w-0 overflow-x-hidden">
 			<slot />
 		</main>
 		<Scrollbar transition:persist="site-scrollbar" />

@@ -7,10 +7,10 @@ import ContactForm from './contact-form.astro'
 
 <section
 	data-contact
-	class="py-20 md:py-28"
+	class="py-14 sm:py-20 md:py-28"
 	aria-label="contact"
 >
-	<div class="mx-auto max-w-7xl px-6 md:px-10">
+	<div class="mx-auto max-w-7xl px-4 sm:px-6 md:px-10">
 		<SectionHeader
 			eyebrow={contactContent.eyebrow}
 			heading={contactContent.heading}
@@ -18,7 +18,7 @@ import ContactForm from './contact-form.astro'
 			headingClass="max-w-2xl"
 		/>
 
-		<div class="mt-16 grid grid-cols-1 gap-14 md:mt-20 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+		<div class="mt-12 grid grid-cols-1 gap-12 sm:mt-16 sm:gap-14 md:mt-20 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
 			<ContactDetails />
 			<ContactForm />
 		</div>

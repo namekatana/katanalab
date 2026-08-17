@@ -9,6 +9,8 @@ export function initHeaderMenu() {
 	const menu = document.querySelector<HTMLElement>(SELECTORS.menu)
 
 	if (!toggle || !menu) return
+	if (toggle.dataset.bound === 'true') return
+	toggle.dataset.bound = 'true'
 
 	const setOpen = (open: boolean) => {
 		toggle.setAttribute('aria-expanded', String(open))
@@ -31,5 +33,11 @@ export function initHeaderMenu() {
 
 	window.addEventListener('keydown', (event) => {
 		if (event.key === 'Escape') setOpen(false)
+	})
+
+	window.addEventListener('resize', () => {
+		if (window.matchMedia('(min-width: 768px)').matches) {
+			setOpen(false)
+		}
 	})
 }
