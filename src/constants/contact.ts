@@ -7,11 +7,11 @@ export const contactContent = {
 	eyebrow: 'get in touch',
 	heading: 'leave a request',
 	subheading:
-		'a telegram bot will be available soon. tell us about your project and we will get back to you.',
+		'our telegram bot is currently in development. for now, message @katanalabs directly.',
 	telegram: {
 		handle: '@katanalabs',
 		href: 'https://t.me/katanalabs',
-		label: 'message us on telegram',
+		note: 'bot in development — write to us here for now.',
 	},
 	location: {
 		label: 'location',
