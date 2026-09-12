@@ -1,3 +1,5 @@
+export type BlogBlock = string | { heading: string } | { list: string[] }
+
 export interface BlogPost {
 	slug: string
 	title: string
@@ -6,7 +8,8 @@ export interface BlogPost {
 	summary: string
 	tags: string[]
 	href: string
-	body: string[]
+	body: BlogBlock[]
+	svg?: string
 }
 
 export const blogContent = {

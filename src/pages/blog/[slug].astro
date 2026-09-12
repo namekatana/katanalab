@@ -21,6 +21,14 @@ const { post } = Astro.props
 const titleTransitionName = `blog-title-${post.slug}`
 const contentFade = fade({ duration: '0.35s' })
 const formattedDate = formatDate(post.date)
+
+function isHeading(block: BlogPost['body'][number]): block is { heading: string } {
+	return typeof block === 'object' && 'heading' in block
+}
+
+function isList(block: BlogPost['body'][number]): block is { list: string[] } {
+	return typeof block === 'object' && 'list' in block
+}
 ---
 
 <Layout title={`${post.title} — katana lab`}>
@@ -56,13 +64,35 @@ const formattedDate = formatDate(post.date)
 							<p class="mb-10 text-base leading-relaxed text-neutral-500 sm:mb-12 md:text-lg">
 								{post.summary}
 							</p>
+							{post.svg && (
+								<div
+									class="mb-10 overflow-hidden rounded-xl bg-neutral-50 p-6 sm:mb-12"
+									set:html={post.svg}
+								/>
+							)}
 							<div class="flex flex-col gap-6">
 								{
-									post.body.map((paragraph) => (
-										<p class="text-base leading-relaxed text-neutral-600 md:text-lg">
-											{paragraph}
-										</p>
-									))
+									post.body.map((block) => {
+										if (isHeading(block)) {
+											return (
+												<h2 class="mt-4 text-xl font-bold lowercase text-neutral-900 md:text-2xl">
+													{block.heading}
+												</h2>
+											)
+										}
+										if (isList(block)) {
+											return (
+												<ul class="flex flex-col gap-2 pl-5 text-base leading-relaxed text-neutral-600 marker:text-neutral-300 md:text-lg [&>li]:list-disc">
+													{block.list.map((item) => (
+														<li>{item}</li>
+													))}
+												</ul>
+											)
+										}
+										return (
+											<p class="text-base leading-relaxed text-neutral-600 md:text-lg">{block}</p>
+										)
+									})
 								}
 							</div>
 							<ul class="mt-12 flex flex-wrap gap-x-6 gap-y-2 text-sm lowercase tracking-wide text-neutral-400">
