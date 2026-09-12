@@ -69,5 +69,30 @@ export const blogContent = {
 				<text x="256" y="91" font-size="11" fill="#171717">1.8s</text>
 			</svg>`,
 		},
+		{
+			slug: 'slow-contact-form-cost',
+			title: 'the real cost of a slow contact form',
+			date: '2026-08-22',
+			readingTime: '3 min',
+			summary:
+				'a contact form is the last step before a lead becomes a conversation. every extra second there is a lead you never hear from.',
+			tags: ['product', 'engineering'],
+			href: '/blog/slow-contact-form-cost',
+			body: [
+				'most teams spend weeks on a homepage and ten minutes on the form at the bottom of it. that form is where intent turns into a message in your inbox, or does not.',
+				{ heading: 'where forms lose people' },
+				'the drop-off rarely happens because a field is missing. it happens because the form is silent: no feedback while typing, a submit button that looks the same whether it is working or stuck, an error that only appears after a full page reload.',
+				{
+					list: [
+						'validate fields as someone types, not only after they hit submit',
+						'disable the button and show a clear pending state the moment it is pressed',
+						'confirm success inline, without sending the visitor to a new page',
+					],
+				},
+				{ heading: 'what we changed' },
+				'on a recent rebuild we replaced a full-page form redirect with inline validation and an optimistic pending state. same fields, same copy — the only change was feedback speed, and reported form completions went up noticeably the following month.',
+				'a form is not a formality at the end of a page. it is the one place a stranger decides to become a lead, so it deserves the same attention as the hero section above it.',
+			],
+		},
 	] satisfies BlogPost[],
 }
