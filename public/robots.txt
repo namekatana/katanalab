@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://katanalab.live/sitemap-index.xml
