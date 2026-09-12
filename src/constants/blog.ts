@@ -94,5 +94,28 @@ export const blogContent = {
 				'a form is not a formality at the end of a page. it is the one place a stranger decides to become a lead, so it deserves the same attention as the hero section above it.',
 			],
 		},
+		{
+			slug: 'why-we-skip-dark-mode',
+			title: 'why we skip dark mode on most client sites',
+			date: '2026-09-08',
+			readingTime: '3 min',
+			summary:
+				'dark mode is a fun feature to build and a real cost to maintain. for a marketing site, that trade rarely pays off.',
+			tags: ['design', 'process'],
+			href: '/blog/why-we-skip-dark-mode',
+			body: [
+				'clients ask for dark mode more often than analytics ever ask for it. it looks impressive in a pitch, and it is genuinely satisfying to build — but on a marketing site it usually solves a problem nobody has.',
+				{ heading: 'what it actually costs' },
+				'a real dark theme is not one extra stylesheet. it is a second set of contrast decisions for every button, chart, illustration, and photo overlay on the site, checked again every time the design changes.',
+				{
+					list: [
+						'every new section needs two passes instead of one, for the life of the site',
+						'photography and illustrations often need separate versions to hold contrast',
+						'a half-finished dark mode looks worse than no dark mode at all',
+					],
+				},
+				'we still build it when the product itself is used at night — a reading app, a dashboard someone leaves open in a dim room. for a page meant to be read once and acted on, we would rather spend that budget on the copy and the load time.',
+			],
+		},
 	] satisfies BlogPost[],
 }
