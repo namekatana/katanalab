@@ -7,9 +7,18 @@ import '../styles/global.css'
 
 interface Props {
 	title?: string
+	description?: string
+	image?: string
 }
 
-const { title = 'katana lab' } = Astro.props
+const {
+	title = 'katana lab',
+	description = 'from websites to telegram bots to full-scale apps — katana lab turns what you need into what you use, with a fixed price and a clear scope.',
+	image = '/images/logo.png',
+} = Astro.props
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+const socialImageURL = new URL(image, Astro.site)
 ---
 
 <!doctype html>
@@ -21,6 +30,18 @@ const { title = 'katana lab' } = Astro.props
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 		<meta name="generator" content={Astro.generator} />
+		<link rel="canonical" href={canonicalURL} />
+		<meta name="description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:image" content={socialImageURL} />
+		<meta property="og:site_name" content="katana lab" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={socialImageURL} />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
